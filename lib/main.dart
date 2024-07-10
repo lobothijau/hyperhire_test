@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: const ColorScheme.light(),
         useMaterial3: false,
+        fontFamily: "NotoSansKR"
       ),
       home: const HomePage(),
     );
