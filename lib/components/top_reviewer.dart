@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hyperhire_test/screens/profile_page.dart';
 import '../models/reviewer.dart';
 
 var reviewer = [
@@ -43,7 +44,9 @@ class TopReviewer extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20.0,),
+          const SizedBox(
+            height: 20.0,
+          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 16.0),
@@ -55,17 +58,29 @@ class TopReviewer extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage(review.assetName),
-                            radius: 36,
+                          GestureDetector(
+                            child: CircleAvatar(
+                              backgroundImage: AssetImage(review.assetName),
+                              radius: 36,
+                            ),
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => ProfilePage(
+                                    assetName: review.assetName,
+                                    name: review.name,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                           Text(review.name),
                         ],
                       ),
                       review.isTopReviewer
                           ? Image.asset(
-                        "assets/images/icons/crown.png",
-                      )
+                              "assets/images/icons/crown.png",
+                            )
                           : Container(),
                     ],
                   ),
