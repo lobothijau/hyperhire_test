@@ -106,7 +106,6 @@ class ProfilePage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           fontSize: 20.0)),
                   Text("총 35개"),
-
                 ],
               ),
             ),
